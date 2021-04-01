@@ -39,6 +39,11 @@ app.get(
     }
 )
 
+app.route('/name')
+    .get(function(req,res){
+        res.json({name: req.query.first + ' ' + req.query.last})
+    });
+
 app.get(
     '/',
     function(req, res){
