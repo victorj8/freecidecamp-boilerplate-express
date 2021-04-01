@@ -33,6 +33,13 @@ app.get(
 );
 
 app.get(
+    '/:word/echo',
+    function(req, res){
+        res.json({echo: req.params.word})
+    }
+)
+
+app.get(
     '/',
     function(req, res){
         res.sendFile(__dirname + '/views/index.html');
