@@ -3,11 +3,14 @@ var app = express();
 app.use('/public', express.static(__dirname + '/public'));
 const dotenv = require('dotenv');
 dotenv.config();
+var bodyParser =require('body-parser');
 
 app.use(function(req, res, next) {
     console.log(req.method + ' ' + req.path + ' - ' + req.ip);
     next();
 });
+
+app.use(bodyParser.urlencoded({extended: false}));
 
 app.get(
     '/json',
@@ -42,6 +45,9 @@ app.get(
 app.route('/name')
     .get(function(req,res){
         res.json({name: req.query.first + ' ' + req.query.last})
+    })
+    .post(function(req,res){
+
     });
 
 app.get(
