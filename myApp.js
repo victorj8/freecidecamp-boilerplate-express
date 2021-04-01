@@ -8,12 +8,12 @@ dotenv.config();
 app.get(
     '/json',
     function(req, res){
-        var response_message = 'Hello json';
-        if(process.env.MESSAGE_STYLE == "uppercase") {
-            response_message = response_message.toUpperCase();
-        }
-
-        res.json({"message": response_message});
+        if(process.env.MESSAGE_STYLE === "uppercase"){
+            res.json({
+            "message" : "HELLO JSON"
+            })
+            }
+        res.json({"message" : "Hello json"});        
     }
 );
 
